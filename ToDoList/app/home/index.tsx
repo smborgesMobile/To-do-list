@@ -1,6 +1,7 @@
 import { Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from "./styles";
+import TaskInput from "../../components/taskInput";
 
 export default function HomeScreen() {
   return (
@@ -10,6 +11,7 @@ export default function HomeScreen() {
           source={require('../../assets/images/logo.png')}
           style={styles.logo}
         />
+        <TaskInput />
       </View>
     </SafeAreaView>
   );
