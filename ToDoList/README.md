@@ -1,50 +1,22 @@
-# Welcome to your Expo app 👋
+Este projeto é uma aplicação de lista de tarefas desenvolvida como parte do módulo de conclusão do curso de React Native. A aplicação permite que os usuários adicionem, removam e marquem tarefas como concluídas, oferecendo uma interface simples e intuitiva.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Funcionalidades
 
-## Get started
+- Adicionar novas tarefas
+- Exibir uma lista de tarefas existentes
+- Marcar tarefas como concluídas
+- Remover tarefas da lista
 
-1. Install dependencies
+## Tecnologias Utilizadas
 
+- React Native
+- Expo
+- React Navigation
+
+## Instalação
+
+Para rodar este projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
    ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
