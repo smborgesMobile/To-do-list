@@ -11,6 +11,8 @@ export default function HomeScreen() {
           source={require('../../assets/images/logo.png')}
           style={styles.logo}
         />
+      </View>
+      <View style={styles.contentContainer}>
         <TaskInput />
       </View>
     </SafeAreaView>

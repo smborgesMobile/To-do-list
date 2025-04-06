@@ -7,9 +7,9 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 8,
-        marginTop: 40,
         paddingStart: 16,
-        paddingEnd: 24
+        paddingEnd: 24,
+        transform: [{translateY: -30}]
     },
     taskInput: {
         flex: 1,
