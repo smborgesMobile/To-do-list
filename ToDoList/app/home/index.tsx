@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import TaskInput from "../../components/taskInput";
 import { StatusLabel } from '@/components/statusLabel';
 import { EmptyState } from '@/components/divider';
+import { TaskItem } from "../../components/taskItem";
 
 export default function HomeScreen() {
   return (
@@ -27,7 +28,9 @@ export default function HomeScreen() {
         </View>
 
         <EmptyState />
-
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
       </View>
     </SafeAreaView>
   );

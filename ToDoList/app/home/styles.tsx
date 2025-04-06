@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     contentContainer: {
         flex: 0.75,
         backgroundColor: '#1A1A1A',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
     },
     labelContainer: {
         width: '100%',
