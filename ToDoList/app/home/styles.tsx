@@ -37,3 +37,5 @@ export const styles = StyleSheet.create({
         paddingStart: 24,
     }
 })
+
+export default styles;

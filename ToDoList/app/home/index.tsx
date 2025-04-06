@@ -1,30 +1,21 @@
-// Removed unused EmptyState import
 import { StatusLabel } from '@/components/statusLabel';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FlatList, Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { EmptyState } from '../../components/divider';
 import TaskInput, { Task } from "../../components/taskInput";
 import { TaskItem } from "../../components/taskItem";
 import { styles } from "./styles";
+import { TaskViewModel } from './viewModels/TaskViewModel';
 
 export default function HomeScreen() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  function onAddButtonClick(task: Task) {
-    setTasks([...tasks, task]);
-  }
+  const taskViewModel = new TaskViewModel(setTasks);
 
-  function onRemoveTask(task: Task) {
-    setTasks(tasks.filter((t) => t.id !== task.id));
-  }
-
-  function onTaskUpdate(task: Task, isChecked: boolean) {
-    const updatedTasks = tasks.map((t) =>
-      t.id === task.id ? { ...t, completed: isChecked } : t
-    );
-    setTasks(updatedTasks);
-  }
+  useEffect(() => {
+    taskViewModel.loadTasks();
+  }, [taskViewModel]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,7 +27,7 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.contentContainer}>
-        <TaskInput onAddButtonClick={(task: Task) => onAddButtonClick(task)} />
+        <TaskInput onAddButtonClick={(task: Task) => taskViewModel.onAddButtonClick(task)} />
         <View style={styles.labelContainer}>
           <View style={styles.leftLabel}>
             <StatusLabel title="Criadas" color='#4EA8DE' counter={tasks.filter((task) => !task.completed).length} />
@@ -47,17 +38,13 @@ export default function HomeScreen() {
         </View>
 
         <FlatList
-          data={tasks}
+          data={tasks.reverse()}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <TaskItem
               task={item}
-              onRemove={(task) =>
-                onRemoveTask(task)
-              }
-              onUpdate={(task: Task, isChecked: boolean) =>
-                onTaskUpdate(task, isChecked)
-              }
+              onRemove={(task) => taskViewModel.onRemoveTask(task)}
+              onUpdate={(task: Task, isChecked: boolean) => taskViewModel.onTaskUpdate(task, isChecked)}
             />
           )}
           showsVerticalScrollIndicator={false}
