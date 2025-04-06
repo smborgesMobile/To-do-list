@@ -1,12 +1,20 @@
-import { Image, View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { styles } from "./styles";
-import TaskInput from "../../components/taskInput";
+// Removed unused EmptyState import
 import { StatusLabel } from '@/components/statusLabel';
-import { EmptyState } from '@/components/divider';
+import { useState } from 'react';
+import { Image, View, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import TaskInput, { Task } from "../../components/taskInput";
 import { TaskItem } from "../../components/taskItem";
+import { styles } from "./styles";
+import { EmptyState } from '../../components/divider';
 
 export default function HomeScreen() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  function onAddButtonClick(task: Task) {
+    setTasks([...tasks, task]);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
@@ -17,7 +25,7 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.contentContainer}>
-        <TaskInput />
+        <TaskInput onAddButtonClick={(task: Task) => onAddButtonClick(task)} />
         <View style={styles.labelContainer}>
           <View style={styles.leftLabel}>
             <StatusLabel title="Criadas" color='#4EA8DE' counter={10} />
@@ -27,10 +35,19 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        <EmptyState />
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
+        <FlatList
+          data={tasks}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <TaskItem
+              task={item}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <EmptyState />
+          )}
+        />
       </View>
     </SafeAreaView>
   );

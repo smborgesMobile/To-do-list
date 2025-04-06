@@ -5,7 +5,8 @@ export const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 5,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 12,
     },
     labelText: {
         color: "#FFFFFF",

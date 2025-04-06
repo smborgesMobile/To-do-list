@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#262626',
         padding: 12,
-        marginBottom: 8,
+        marginTop: 8,
         marginRight: 24,
         marginLeft: 24,
         borderRadius: 5,
@@ -18,7 +18,9 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         color: '#F2F2F2',
         flexWrap: 'wrap',
-        flex: 1
+        flex: 1,
+        alignItems: 'center',
+        alignSelf: 'center',
     },
     checkbox: {
         alignSelf: 'center',
