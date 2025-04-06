@@ -6,12 +6,13 @@ import { Task } from "../taskInput";
 
 interface TaskItemProps {
     task: Task,
-    onRemove: (task: Task) => void
+    onRemove: (task: Task) => void,
+    onUpdate: (task: Task, isChecked: boolean) => void
 }
 
 export function TaskItem(props: TaskItemProps) {
-    const [isChecked, setIsChecked] = useState(false);
-    const { task, onRemove } = props;
+    const { task, onRemove, onUpdate } = props;
+    const [isChecked, setIsChecked] = useState(task.completed);
 
     return (
         <View style={styles.container}>
@@ -21,6 +22,7 @@ export function TaskItem(props: TaskItemProps) {
                 iconStyle={{ borderColor: "blue" }}
                 innerIconStyle={{ borderWidth: 3 }}
                 onPress={(checked: boolean) => {
+                    onUpdate(task, checked);
                     setIsChecked(checked);
                     console.log(checked);
                 }}
@@ -28,7 +30,10 @@ export function TaskItem(props: TaskItemProps) {
             <Text
                 numberOfLines={3}
                 ellipsizeMode="tail"
-                style={styles.taskTitle}>
+                style={[
+                    styles.taskTitle,
+                    isChecked && { textDecorationLine: 'line-through', color: '#808080' }
+                ]}>
                 {task.name}
             </Text>
             <TouchableOpacity onPress={() => onRemove(task)}>
