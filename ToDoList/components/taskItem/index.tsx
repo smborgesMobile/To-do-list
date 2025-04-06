@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { styles } from "./styles";
 import { Task } from "../taskInput";
 
 interface TaskItemProps {
-    task: Task
+    task: Task,
+    onRemove: (task: Task) => void
 }
 
 export function TaskItem(props: TaskItemProps) {
     const [isChecked, setIsChecked] = useState(false);
-    const { task } = props;
+    const { task, onRemove } = props;
 
     return (
         <View style={styles.container}>
@@ -30,10 +31,12 @@ export function TaskItem(props: TaskItemProps) {
                 style={styles.taskTitle}>
                 {task.name}
             </Text>
-            <Image
-                style={styles.taskImage}
-                source={require('../../assets/images/trash.png')}
-            />
+            <TouchableOpacity onPress={() => onRemove(task)}>
+                <Image
+                    style={styles.taskImage}
+                    source={require('../../assets/images/trash.png')}
+                />
+            </TouchableOpacity>
         </View>
     );
 }

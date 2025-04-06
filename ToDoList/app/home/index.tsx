@@ -15,6 +15,10 @@ export default function HomeScreen() {
     setTasks([...tasks, task]);
   }
 
+  function onRemoveTask(task: Task) {
+    setTasks(tasks.filter((t) => t.id !== task.id));
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
@@ -41,6 +45,9 @@ export default function HomeScreen() {
           renderItem={({ item }) => (
             <TaskItem
               task={item}
+              onRemove={(task) =>
+                onRemoveTask(task)
+              }
             />
           )}
           showsVerticalScrollIndicator={false}
