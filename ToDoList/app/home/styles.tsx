@@ -21,4 +21,18 @@ export const styles = StyleSheet.create({
         backgroundColor: '#1A1A1A',
         justifyContent: 'flex-start'
     },
+    labelContainer: {
+        width: '100%',
+        flexDirection: 'row'
+    },
+    rightLabel: {
+        alignItems: 'flex-end',
+        paddingEnd: 24,
+        
+    },
+    leftLabel: {
+        flex: 1,
+        alignItems: 'flex-start',
+        paddingStart: 24,
+    }
 })
