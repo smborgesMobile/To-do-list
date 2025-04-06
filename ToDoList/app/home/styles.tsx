@@ -17,9 +17,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
     },
     contentContainer: {
-        flex: 0.75,
+        flex: 1,
         backgroundColor: '#1A1A1A',
         justifyContent: 'flex-start',
+        paddingBottom: 16
     },
     labelContainer: {
         width: '100%',

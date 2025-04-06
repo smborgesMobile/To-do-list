@@ -24,6 +24,7 @@ export default function TaskInput(props: ParticipantProps) {
                 placeholderTextColor="#6b6b6b"
                 onChangeText={(text) => setTaskName(text)}
                 value={taskName}
+                numberOfLines={1}
             />
             <TouchableOpacity
                 style={styles.button}
