@@ -38,7 +38,7 @@ export default function HomeScreen() {
         </View>
 
         <FlatList
-          data={tasks.reverse()}
+          data={tasks}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <TaskItem
