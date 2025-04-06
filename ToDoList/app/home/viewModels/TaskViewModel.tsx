@@ -44,4 +44,4 @@ export class TaskViewModel {
     };
 }
 
-
+export default TaskViewModel;
