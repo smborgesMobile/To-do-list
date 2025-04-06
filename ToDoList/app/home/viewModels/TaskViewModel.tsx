@@ -19,7 +19,7 @@ export class TaskViewModel {
 
     onAddButtonClick = (task: Task) => {
         this.setTasks((prevTasks) => {
-            const updatedTasks = [...prevTasks, task];
+            const updatedTasks = [task, ...prevTasks];
             this.saveTasks(updatedTasks);
             return updatedTasks;
         });
