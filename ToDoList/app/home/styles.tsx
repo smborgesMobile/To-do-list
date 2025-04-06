@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         alignItems: "center"
     },
     logoContainer: {
-        flex: 0.20,
+        height: 160,
         backgroundColor: '#0D0D0D',
         justifyContent: 'center',
         alignItems: 'center',
